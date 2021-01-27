@@ -4,8 +4,29 @@
         // Write a JavaScript function that iterates the integers from 1 to 100. For multiples of 3 print "TEK" instead of the number and for multiples of 5, print "camp." For numbers that are multiples of both 3 and 5, print "TEKcamp."
 
         //your code...
-        function tekCamp() {}
-        // tekCamp();
+        console.log("TEKcamp>>>>>>>>>>");
+
+function tekCamp() {
+  var no = 100;
+  // loop for 100 times
+  for (var i = 1; i <= no; i++) {
+    if (i % 15 == 0) console.log("TEKcamp" + " ");
+    // number divisible by 5, print 'camp'
+    // in place of the number
+    else if (i % 5 == 0) console.log("camp" + " ");
+    // number divisible by 3, print 'TEK'
+    // in place of the number
+    else if (i % 3 == 0) console.log("TEK" + " ");
+    // number divisible by 15(divisible by
+    // both 3 & 5), print 'TEKcamp' in
+    // place of the number
+    // print the numbers
+    else console.log(i + " ");
+  }
+}
+
+tekCamp();
+       
 
 
 
