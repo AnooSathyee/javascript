@@ -339,6 +339,19 @@ const nums = [1, 2, 3, 4, 5];
 // Square every number in the array.  Store the squares in a new array.
 
 //your code...
+function squareArr(nums) {
+    ret= [];
+
+    for (var i = 0, len = nums.length; i < len; i++) {
+        sqRoot = Math.sqrt(nums[i]);
+        ret.push(sqRoot)//(nums[i] * nums[i]);
+    }
+
+    return ret; 
+}
+
+console.log(nums)
+console.log(squareArr(nums));
 
 const fivePlus = [
   1,
