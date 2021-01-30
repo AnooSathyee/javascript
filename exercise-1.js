@@ -10,6 +10,9 @@ function tekCamp() {
   var no = 100;
   // loop for 100 times
   for (var i = 1; i <= no; i++) {
+    // number divisible by 15(divisible by
+    // both 3 & 5), print 'TEKcamp' in
+    // place of the number
     if (i % 15 == 0) console.log("TEKcamp" + " ");
     // number divisible by 5, print 'camp'
     // in place of the number
@@ -17,9 +20,6 @@ function tekCamp() {
     // number divisible by 3, print 'TEK'
     // in place of the number
     else if (i % 3 == 0) console.log("TEK" + " ");
-    // number divisible by 15(divisible by
-    // both 3 & 5), print 'TEKcamp' in
-    // place of the number
     // print the numbers
     else console.log(i + " ");
   }
@@ -197,6 +197,16 @@ function testTruthyFalsy(val) {
   return val ? console.log("truthy") : console.log("Falsy");
 }
 
+function testTrueorFalse(val1){
+    if(val1){
+        console.log("truthy");
+    } else{
+        console.log("Falsy");
+    }
+}
+
+testTrueorFalse(20);
+
 testTruthyFalsy(20);
 testTruthyFalsy(0);
 testTruthyFalsy("zero");
@@ -340,17 +350,17 @@ const nums = [1, 2, 3, 4, 5];
 
 //your code...
 function squareArr(nums) {
-    ret= [];
+  newArr = [];
 
-    for (var i = 0, len = nums.length; i < len; i++) {
-        sqRoot = Math.sqrt(nums[i]);
-        ret.push(sqRoot)//(nums[i] * nums[i]);
-    }
+  for (var i = 0, len = nums.length; i < len; i++) {
+    //sqRoot = Math.sqrt(nums[i]);
+    newArr.push(nums[i] * nums[i]);
+  }
 
-    return ret; 
+  return newArr;
 }
 
-console.log(nums)
+console.log(nums);
 console.log(squareArr(nums));
 
 const fivePlus = [
@@ -429,6 +439,12 @@ const ones = [
   1111111111,
 ];
 //reverse the array, without modifying / `mutating` the ones array.
+
+const revArray = [];
+for (let i = ones.length - 1; i > 1; i--) {
+    revArray.push(ones[i]);
+  }
+  console.log(revArray);
 
 /************************************************************* */
 //create a function called performer(cb) that takes in a callback function and runs that callback function.  The function should return the output of the callback function.
