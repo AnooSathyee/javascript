@@ -73,9 +73,11 @@ console.log(oldEnough);
 //your code...
 function strToArr() {
   var stringToConvert = "ANU";
-  //var convertedArry = [...stringToConvert];
+  //   var convertedArry = [...stringToConvert];
+  //   console.log(convertedArry);
   return [...stringToConvert];
 }
+//strToArr();
 console.log(strToArr());
 /************************************************************************************/
 // Write a function that reverses your telephone number.  It should return the reversed telephone number.
@@ -122,7 +124,7 @@ function evenOdd(arr) {
   }
   return evenOddObj;
 }
-console.log(evenOdd([10, 11, 20, 21, 30, 31]));
+console.log(evenOdd([10, 23, 3, 4]));
 /************************************************************************************/
 const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 // Write a "for" loop that console.log()'s the first value in the  array, and every 3rd number, i.e. 0, 3, 6, 9: the zeroth, third, sixth, and ninth values.
@@ -143,6 +145,8 @@ const foodArray = [
   { program: "TEKcamp" },
 ];
 //access the value of the last element of the array and set it to a variable called school.  print the school variable to the console.
+foodArray[5] = "school";
+console.log(foodArray[5]);
 
 const adjectiveArray = [
   "salty",
@@ -174,6 +178,14 @@ while (i < 10) {
 //use javascript to compute the value of the above statement. Each individual operation needs to be a function expression. run all the functions after defining them, and print the answer to the console.
 
 //your code...
+function calc1() {
+  console.log(30 + 2) * 20;
+}
+//console.log (calc1());
+function calc2(product) {
+  return (product / 10) ** 2;
+}
+console.log(calc2(calc1()));
 
 /************************************************************* */
 //Determine whether the following values are "truthy" or "falsy".  console.log() the value, whether the value is 'truthy' or 'falsy', along with your reasoning why using String interpolation values :
@@ -197,12 +209,12 @@ function testTruthyFalsy(val) {
   return val ? console.log("truthy") : console.log("Falsy");
 }
 
-function testTrueorFalse(val1){
-    if(val1){
-        console.log("truthy");
-    } else{
-        console.log("Falsy");
-    }
+function testTrueorFalse(val1) {
+  if (val1) {
+    console.log("truthy");
+  } else {
+    console.log("Falsy");
+  }
 }
 
 testTrueorFalse(20);
@@ -210,8 +222,8 @@ testTrueorFalse(20);
 testTruthyFalsy(20);
 testTruthyFalsy(0);
 testTruthyFalsy("zero");
-const zer0 = 20;
-testTruthyFalsy(zer0);
+const zero = 20;
+testTruthyFalsy(zero);
 testTruthyFalsy(null);
 testTruthyFalsy("0");
 testTruthyFalsy(!"");
@@ -219,7 +231,9 @@ testTruthyFalsy(125);
 testTruthyFalsy({});
 testTruthyFalsy(undefined);
 testTruthyFalsy("");
-//testTruthyFalsy() => {console.log("hello TEKcamp!")};
+testTruthyFalsy(() => {
+  console.log("hello TEKcamp!");
+});
 
 /************************************************************* */
 // Refactor the following code using a switch statement:
@@ -241,6 +255,9 @@ if (day === "monday") {
 } else {
   console.log("It's a weekend!");
 }
+
+//==========================================================
+
 const day = "friday";
 switch (day) {
   case "monday":
@@ -287,7 +304,7 @@ if (age > 65) console.log("retired");
 else {
   console.log("still working...");
 }
-
+//==============================================
 const age = 10;
 console.log(age > 21 ? "adult" : "minor");
 console.log(age > 13 && age < 19 ? "teen" : "not a teenager");
@@ -310,7 +327,23 @@ console.log(age > 65 ? "retired" : "still working");
         */
 
 //your code...
-
+var person = {
+  name: "Anuradha",
+  age: 40,
+  gender: "female",
+  healthy: "Yes",
+  hobbies: ["cooking", "learning"],
+  profession: "Intership",
+  education: "MBA",
+  learn: function () {
+    console.log(this.name + " is learning JavaScript.");
+  },
+  passion: function () {
+    return "I love " + this.hobbies[0] + ".";
+  },
+};
+person.learn();
+console.log(person.passion());
 /************************************************************* */
 
 {
@@ -323,22 +356,28 @@ console.log(age > 65 ? "retired" : "still working");
   //Refactor the following statements into expressions
 
   // 1.
-  if (year > 2000 && year < 2100) {
-    console.log("welcome to the 21st century");
-  }
+  //if (year > 2000 && year < 2100) {
+  //  console.log("welcome to the 21st century");
+  //}
+
+  year > 2000 && year < 2100 ? console.log("welcome to the 21st century") : "";
 
   // 2.
-  for (let i = 0; i < nums.length; i++) {
-    sum += nums[i];
-  }
-  console.log(sum);
+  //   for (let i = 0; i < nums.length; i++) {
+  //     sum += nums[i];
+  //   }
+  //   console.log(sum);
+
+  console.log(nums.reduce((a, b) => a + b, 0));
 
   // 3.
-  while (i < nums.length) {
-    doubled.push(nums[i] * 2);
-    i++;
-  }
+  //   while (i < nums.length) {
+  //     doubled.push(nums[i] * 2);
+  //     i++;
+  //   }
 
+  //   console.log(doubled);
+  nums.forEach((x) => doubled.push(x * 2));
   console.log(doubled);
 }
 
@@ -353,7 +392,7 @@ function squareArr(nums) {
   newArr = [];
 
   for (var i = 0, len = nums.length; i < len; i++) {
-    //sqRoot = Math.sqrt(nums[i]);
+    //newArr = Math.sqrt(nums[i]);
     newArr.push(nums[i] * nums[i]);
   }
 
@@ -398,13 +437,21 @@ const fivePlus = [
 //Remove all numbers that are less than 5.  Store the results in a new array.
 
 //your code...
-
+var newArray = new Array();
+fivePlus.forEach(function (number) {
+  if (number > 5) {
+    newArray.push(number);
+  }
+});
+console.log(newArray);
 // Create an array of 20 randomly generated integers.  Calculate the sum of the elements in the array.
 
 //your code...
+console.log(Array.from({ length: 20 }, () => Math.floor(Math.random() * 20)));
 
 const showNums = [12, 22, 33, 44, 55, 66, 77, 88, 99, 101];
 //Print out the value of each number divided by 2.  There is no need to store the output in an array.
+showNums.forEach((x) => console.log(x / 2));
 
 /************************************************************* */
 /* Chess pieces have point values associated with them.  
@@ -420,9 +467,35 @@ const showNums = [12, 22, 33, 44, 55, 66, 77, 88, 99, 101];
 
         */
 
+let chessPieces = ['king','queen','pawn','pawn','pawn','bishop','police','iphone','thief'];
+
 function chessCalc(pieces) {
   //your code here
+  let points = 0;
+  for (let i = 0; i < pieces.length; i++) {
+    switch (pieces[i]) {
+      case 'pawn':
+        points++;
+        break;
+      case 'rook':
+        points += 5;
+        break;
+      case 'bishop':
+        points += 3;
+        break;
+      case 'knight':
+        points += 3;
+        break;
+      case 'queen':
+        points += 9;
+        break;
+      default:
+        break;
+    }
+  }
+  return points;
 }
+console.log(chessCalc(chessPieces));
 
 /************************************************************* */
 
@@ -440,11 +513,14 @@ const ones = [
 ];
 //reverse the array, without modifying / `mutating` the ones array.
 
-const revArray = [];
-for (let i = ones.length - 1; i > 1; i--) {
-    revArray.push(ones[i]);
-  }
-  console.log(revArray);
+// const revArray = [];
+// for (let i = ones.length; i >= 0; i--) {
+//   revArray.push(ones[i]);
+// }
+// console.log(revArray);
+
+ones.reverse();
+console.log(ones);
 
 /************************************************************* */
 //create a function called performer(cb) that takes in a callback function and runs that callback function.  The function should return the output of the callback function.
