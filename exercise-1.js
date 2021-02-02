@@ -527,7 +527,15 @@ console.log(ones);
 
 function performer(cb) {
   //code goes here
+  console.log("This is " + cb);
 }
+
+function userInput(callback){
+    var cb = "CALL BACK Function";
+    callback(cb);
+}
+
+userInput(performer);
 
 /************************************************************* */
 // For the given list of developers :
