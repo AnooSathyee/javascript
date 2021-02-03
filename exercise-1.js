@@ -606,17 +606,25 @@ const devs = [
 // Find all devs older than 24
 
 //your code here...
-
+let oldDev = [];
+for(let i = 0; i < devs.length; i++){
+    (devs[i].age > 24) ? oldDev.push(devs[i]) : "";
+}
+console.log(oldDev);
 /************************** */
 // Remove all people who are not developers (i.e. no tech stack)
 
 //your code here...
+let nonDev = devs.filter((i) => i.tech_stack !== null);
+
+console.log('Developers are ', nonDev);
 
 /************************** */
 // Calculate the total age of all the devs
 
 //your code here...
-
+let sumAge = devs.reduce((x, y) => x + y.age, 0);
+console.log('Total age of all the developers are ', sumAge);
 /************************** */
 // Find all female devs
 
@@ -722,11 +730,18 @@ console.log(mapObj.has({ company: "TEKsystems" }));
 //Create 4 mathematical function expressions, add,subtract,multiply,divide.  put them in an array, and create a doMath() function that randomly selects one of the mathematical operations whenever it is invoked.  The doMath() function should print to the console the mathetmatical function that was carried out.  The doMath() function should return the computed value of any operation performed.
 
 // ex : 2,3 => doMath(2,3) => adding : 5
-const operations = [];
-function doMath(x, y) {}
+
+function doMath(x, y) {
+    var index
+}
 
 //your code...
+const add = (x,y) => (x + y);
+const subract = (x,y) => (x - y);
+const multiply = (x,y) => (x * y);
+const divide = (x,y) => (x / y);
 
+const operations = [add(), subract(), multiply(), divide()];
 /************************************************************* */
 //- Create a Higher Order Function called multiple(x) that takes a single parameter.  This HOF should return another function fn(y) that accepts another single parameter y.  This inner function should compute the product of it's parameter with the parameter passed into multiple.  Use this returned "first-class" function to compute triples of any given number.
 
