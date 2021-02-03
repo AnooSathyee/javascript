@@ -467,26 +467,36 @@ showNums.forEach((x) => console.log(x / 2));
 
         */
 
-let chessPieces = ['king','queen','pawn','pawn','pawn','bishop','police','iphone','thief'];
+let chessPieces = [
+  "king",
+  "queen",
+  "pawn",
+  "pawn",
+  "pawn",
+  "bishop",
+  "police",
+  "iphone",
+  "thief",
+];
 
 function chessCalc(pieces) {
   //your code here
   let points = 0;
   for (let i = 0; i < pieces.length; i++) {
     switch (pieces[i]) {
-      case 'pawn':
+      case "pawn":
         points++;
         break;
-      case 'rook':
+      case "rook":
         points += 5;
         break;
-      case 'bishop':
+      case "bishop":
         points += 3;
         break;
-      case 'knight':
+      case "knight":
         points += 3;
         break;
-      case 'queen':
+      case "queen":
         points += 9;
         break;
       default:
@@ -530,9 +540,9 @@ function performer(cb) {
   console.log("This is " + cb);
 }
 
-function userInput(callback){
-    var cb = "CALL BACK Function";
-    callback(cb);
+function userInput(callback) {
+  var cb = "CALL BACK Function";
+  callback(cb);
 }
 
 userInput(performer);
@@ -607,8 +617,8 @@ const devs = [
 
 //your code here...
 let oldDev = [];
-for(let i = 0; i < devs.length; i++){
-    (devs[i].age > 24) ? oldDev.push(devs[i]) : "";
+for (let i = 0; i < devs.length; i++) {
+  devs[i].age > 24 ? oldDev.push(devs[i]) : "";
 }
 console.log(oldDev);
 /************************** */
@@ -617,38 +627,57 @@ console.log(oldDev);
 //your code here...
 let nonDev = devs.filter((i) => i.tech_stack !== null);
 
-console.log('Developers are ', nonDev);
+console.log("Developers are ", nonDev);
 
 /************************** */
 // Calculate the total age of all the devs
 
 //your code here...
 let sumAge = devs.reduce((x, y) => x + y.age, 0);
-console.log('Total age of all the developers are ', sumAge);
+console.log("Total age of all the developers are ", sumAge);
 /************************** */
 // Find all female devs
 
 //your code here...
-
+let femaleDevs = devs.filter((f) => f.gender.toLowerCase() === "f");
+console.log("Female devs ", femaleDevs);
 /************************** */
 // lowercase the genders of every dev
 
 //your code here...
-
+let lowerCase = devs.filter((l) => l.gender.toLowerCase());
+console.log("Lower case of genders of every dev ", lowerCase);
 /************************** */
 // Sort the developers by name
 
 //your code here
+const nameDevSort = devs.sort(function (a, b) {
+} // still working on this part
 
+// console.log(nameDevSort);
 /************************** */
 // Sort the devs by age in descending order
 
 //your code here
 
+function ageSort(obj) {
+    var devAge = obj.sort(function()){
+
+    }
+}// pending
+
 /************************** */
 // Sort the male coders by age
 
 //your code here
+
+let maleDevs = [];
+for (let i = 0; i < devs.length; i++) {
+  if (devs[i].gender == "m") {
+    maleDevs.push(devs[i]);
+  }
+}
+console.log(ageSort(maleDevs)); // debugging in process
 
 /************************** */
 // For the list of devs, print out sentences including the name and tech stack of each dev, leaving out other information.  Example output is provided below :
@@ -660,6 +689,9 @@ console.log('Total age of all the developers are ', sumAge);
         */
 
 //your code here
+devs.forEach((dev) => {
+    (!dev.tech_stack) ? console.log(dev.name + " is not a developer.") : console.log(dev.name + " specializes in " + dev.tech_stack);
+    });
 
 /************************************************************* */
 // Write a function to find the maximum numerical value of the given array.  Get rid of any non numerical values.  Convert the strings that are numbers to an actual number data type.  ("one" => 1) ("1" => 1).  Use array methods to perform this task.
@@ -699,8 +731,10 @@ const numbersMixed = [
 
 function maxNumber(numbers) {
   //your code...
+  if (toString.call(numbers) !== "[object Array]") return false;
+  return Math.max.apply(null, numbers);
 }
-
+console.log(maxNumber([numbersMixed])); // not done yet 
 //After the numbers array has been cleaned up to only have numbers in it, Write a function that sorts the modified numbers array.  Allow the function to sort the array in descending order as well.
 
 function sortNums(numbers, desc = false) {
@@ -712,48 +746,102 @@ function sortNums(numbers, desc = false) {
 
 //your code...
 
+//Instead of using the single or double quotes, a template literal uses backticks as shown
+let str = `Template literal in ES6`;
+
+console.log(str); // Template literal in ES6
+console.log(str.length); // 23
+console.log(typeof str); // string
+
+//New way to srite Strings and concatenate the same
+var name = "Chipotle";
+var place = "restaurant";
+
+console.log(`${name} is one of my favourite ${place}!!!`);
+
 /************************************************************* */
 //Add an example of the 5 primary JavaScript data types to the given mapObj.  The key is an example data type, and the value is the name of the data type.  An object data type has already been set as the 1st key / val pair.
 
 const mapObj = new Map();
-mapObj.set({ company: "TEKsystems" }, "object");
+//mapObj.set({ company: "TEKsystems" }, "object");
 
+const keyObject = {
+  company: "TEK Systems",
+};
+mapObj.set(keyObject, "object");
+mapObj.set(20, "int");
+mapObj.set("Party", "String");
+mapObj.set([50, 60, 70], "array");
+mapObj.set(false, "boolean");
+console.log(mapObj);
 console.log(mapObj.has({ company: "TEKsystems" }));
 
 //The above console.log() statmeent returns false.  Write another console.log() statement explaining why this line of code prints false.  Refactor the code `mapObj.set()`, so the code : `mapObj.has() returns true.  The goal is to successfully check and see if {company : "TEKsystems"} exists in the mapObj.
 
 //your code...
+console.log(
+  "this line of code prints false because objects need to be stored in objects."
+);
 
 //loop through the mapObj and create a new array of only the data types, leaving out the example keys of the mapObj.  Use array methods to do this.  Example output : ['string',number','boolean',array','object']
+var objArr = [];
 
+var seq = mapObj.values();
+for (let i = 0; i < mapObj.size; i++) {
+  objArr.push(seq.next().value);
+}
+
+console.log(objArr); // still working not done yety
 /************************************************************* */
 //Create 4 mathematical function expressions, add,subtract,multiply,divide.  put them in an array, and create a doMath() function that randomly selects one of the mathematical operations whenever it is invoked.  The doMath() function should print to the console the mathetmatical function that was carried out.  The doMath() function should return the computed value of any operation performed.
 
 // ex : 2,3 => doMath(2,3) => adding : 5
 
 function doMath(x, y) {
-    var index
+  let calc = Math.floor(Math.random() * operations.length);
+  console.log(operations[calc]);
+  return operations[calc](x, y);
 }
 
 //your code...
-const add = (x,y) => (x + y);
-const subract = (x,y) => (x - y);
-const multiply = (x,y) => (x * y);
-const divide = (x,y) => (x / y);
+const add = (x, y) => x + y;
+const subract = (x, y) => x - y;
+const multiply = (x, y) => x * y;
+const divide = (x, y) => x / y;
 
-const operations = [add(), subract(), multiply(), divide()];
+const operations = [add, subract, multiply, divide];
+
+console.log(doMath(2, 3));
 /************************************************************* */
 //- Create a Higher Order Function called multiple(x) that takes a single parameter.  This HOF should return another function fn(y) that accepts another single parameter y.  This inner function should compute the product of it's parameter with the parameter passed into multiple.  Use this returned "first-class" function to compute triples of any given number.
 
 //your code...
+let hof = function multiple(x) {
+  return function fn(y) {
+    return x * y;
+  };
+};
+console.log(hof(10)(20));
+console.log(hof(hof(10)(20))(5)); //first value of hof gets entered into x, then gets multiplied by y
 
 //- Write an outer function called stockGain that has cost basis (basis) as a parameter; declare a variable called message that holds " is how much the stock has increased".  Return an inner function with years (yrs) as a parameter and declare a variable for growth rate (r) of 5%. Console log your calculation.
 
 //your code
+var stockGain = (basis) => {
+  let message = " is how much the stock has increased";
+  let innerFn = (yrs) => {
+    var r = 1.25;
+    return r ** yrs;
+  };
+  console.log(basis * innerFn(5) - basis + message);
+  return basis * innerFn(5);
+};
 
 // Once finished, declare a variable called futureValue that holds your stockGain function and enter any amount for the cost basis and a number for the number of years.  Run the function returned by the higher order function to display the future value of the stock.
 
 //your code...
+var futureValue = stockGain(10);
+console.log("Future Value is ", futureValue);
 
 // DO NOT DELETE THIS EXPORT
 module.exports = {
