@@ -67,8 +67,6 @@ injectElement.appendChild(p2)
 injectElement.appendChild(h1TextEl)
 injectElement.appendChild(p3)
 
-
-
-// checking the HTML tree in the console
-
 console.log(injectElement)
+
+/*****************************************************/
