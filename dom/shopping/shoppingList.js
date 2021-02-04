@@ -21,13 +21,14 @@
     
     10. Finally, use the focus() method to focus the input element ready for entering the next shopping list item.
     */
+   
   //1
   let ul = document.querySelector("ul");
   let input = document.querySelector("input");
-  let button_a = document.querySelector("button");
+  let button = document.querySelector("button");
 
   // 2
-  button_a.onclick = function () {
+  button.onclick = function () {
   // 3
   let inputVal = input.value;
 
@@ -35,26 +36,28 @@
   input.value = '';
 
   //5
-  let liItem = document.createElement("li");
+  let listItem = document.createElement("li");
   let span = document.createElement("span");
-  let button_b = document.createElement("button");
+  let button_del = document.createElement("button");
 
   //6
-  liItem.appendChild(span);//, button_b);
-  liItem.appendChild(button_b);
+  listItem.appendChild(span);//, button_b);
+  listItem.appendChild(button_del);
 
   //7
   span.textContent = inputVal;
-  button_b.textContent = "Delete";
+  button_del.textContent = "Delete";
 
   //8
-  ul.appendChild(liItem);
+  ul.appendChild(listItem);
 
   //9
-  button_b.onclick = function () {
-    ul.removeChild(liItem);
-  };
-};
+  button_del.addEventListener("click", function(){
+      ul.removeChild(listItem)
+  });
+
+
   //10
   input.focus();
 
+};
